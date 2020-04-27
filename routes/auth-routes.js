@@ -17,37 +17,39 @@ const ensureLogin = require("connect-ensure-login");
 const session = require("express-session");
 
 
-router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+router.get("/familysignup", (req, res, next) => {
+  res.render("auth/familysignup");
 });
  
-router.post("/signup", (req, res, next) => {
+router.post("/familysignup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const familyname = req.body.familyname;
  
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/familysignup", { message: "Indicate username and password" });
     return;
   }
  
-  User.findOne({ username })
-  .then(user => {
-    if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+  Family.findOne({ username })
+  .then(family => {
+    if (family !== null) {
+      res.render("auth/familysignup", { message: "The username already exists" });
       return;
     }
  
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
  
-    const newUser = new User({
+    const newFamily = new Family({
       username,
-      password: hashPass
+      password: hashPass,
+      familyname
     });
  
-    newUser.save((err) => {
+    newFamily.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/familysignup", { message: "Something went wrong" });
       } else {
         res.redirect("/");
       }
@@ -72,26 +74,53 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("/private", { user: req.user });
+   User.find().then(users => {
+    res.render('users', { usersList: users });
+  })
+ // res.render("/private", { user: req.user });
 });
 
-/*router.get("/signup", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("/auth/signup", { user: req.user });
+/* router.post("/private-page", ensureLogin.ensureLoggedIn(), (req, res)=> {
+  const {username, name, birthday, phone_Number, e_mail} = req.body;
+  User.create ({
+     username: username,
+    // password = password;
+     name: name,
+     birthday:birthday,
+     phone_Number: phone_Number,
+     e_mail: e_mail
+  }).then(user => {
+    console.log(`Success ${user} was added to the database`);
+    res.redirect(`/private/${user._id}`);
+  }).catch(err => {
+    console.log(err);
+    // logs the error to the console
+    next(err);
+
+  })
+}); */
+
+router.get("/addmember", (req, res, next) => {
+  res.render("auth/addmember");
 });
 
-router.post("/signup", (req, res, next) => {
+router.post("/addmember", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const name = req.body.name;
+  const birthday = req.body.birthday;
+  const phone_Number = req.body.phone_Number;
+  const e_mail = req.body.e_mail;
  
   if (username === "" || password === "") {
-    res.render("/auth/signup", { message: "Indicate username and password" });
+    res.render("auth/addmember", { message: "Indicate username and password" });
     return;
   }
  
   User.findOne({ username })
   .then(user => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/addmember", { message: "The username already exists" });
       return;
     }
  
@@ -100,12 +129,16 @@ router.post("/signup", (req, res, next) => {
  
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      name,
+      birthday,
+      phone_Number,
+      e_mail
     });
  
     newUser.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/addmember", { message: "Something went wrong" });
       } else {
         res.redirect("/private");
       }
@@ -114,7 +147,7 @@ router.post("/signup", (req, res, next) => {
   .catch(error => {
     next(error)
   })
-}); */
+}); 
 
 router.get("/logout", (req, res) => {
   req.logout();

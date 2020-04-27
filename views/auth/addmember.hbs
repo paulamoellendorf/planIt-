@@ -1,8 +1,8 @@
 
-  <!-- views/auth/signup.hbs -->
-<h2>Sign Up</h2>
+  <!-- views/auth/addmember.hbs -->
+<h2>Add Family Member</h2>
  
-<form action="/signup" method="POST" id="form-container">
+<form action="/addmember" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
   <br><br>
@@ -22,10 +22,6 @@
   <input id="e_mail" type="text" name="e_mail" placeholder="jonsnow@mail.com">
   <br><br>
 
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <br><br>
  
-  <button>Create an Account</button>
+  <button>Create New Member</button>
 </form>
