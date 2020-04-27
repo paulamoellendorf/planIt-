@@ -4,6 +4,7 @@ const router = express.Router();
  
 // User model
 const User = require("../models/User.js");
+const Family = require("../models/Family.js");
  
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -73,6 +74,47 @@ router.post("/login", passport.authenticate("local", {
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("/private", { user: req.user });
 });
+
+/*router.get("/signup", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("/auth/signup", { user: req.user });
+});
+
+router.post("/signup", (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
+ 
+  if (username === "" || password === "") {
+    res.render("/auth/signup", { message: "Indicate username and password" });
+    return;
+  }
+ 
+  User.findOne({ username })
+  .then(user => {
+    if (user !== null) {
+      res.render("auth/signup", { message: "The username already exists" });
+      return;
+    }
+ 
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(password, salt);
+ 
+    const newUser = new User({
+      username,
+      password: hashPass
+    });
+ 
+    newUser.save((err) => {
+      if (err) {
+        res.render("auth/signup", { message: "Something went wrong" });
+      } else {
+        res.redirect("/private");
+      }
+    });
+  })
+  .catch(error => {
+    next(error)
+  })
+}); */
 
 router.get("/logout", (req, res) => {
   req.logout();

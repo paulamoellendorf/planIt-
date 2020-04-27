@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 
 const User=require('./models/User.js');
+const Family=require('./models/Family.js');
 const bcrypt=require('bcrypt');
 const session = require("express-session");
 const passport=require('passport');
@@ -78,6 +79,35 @@ passport.use(new LocalStrategy({
   });
 }));
 
+passport.serializeUser((family, cb) => {
+  cb(null, family._id);
+});
+ 
+passport.deserializeUser((id, cb) => {
+  Family.findById(id, (err, family) => {
+    if (err) { return cb(err); }
+    cb(null, family);
+  });
+});
+
+app.use(flash());
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+}, (req, username, password, next) => {
+  Family.findOne({ username }, (err, family) => {
+    if (err) {
+      return next(err);
+    }
+    if (!family) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, family.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+ 
+    return next(null, family);
+  });
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
