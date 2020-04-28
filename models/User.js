@@ -13,7 +13,7 @@ const userSchema = new Schema({
     enum: ['GUEST', 'ADMIN'],
     default: 'ADMIN',
   },
-  familiy:{
+  family:{
     type: Schema.Types.ObjectId,
     ref: 'Family'
   },

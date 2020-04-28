@@ -20,11 +20,18 @@ const session = require("express-session");
 router.get("/familysignup", (req, res, next) => {
   res.render("auth/familysignup");
 });
+
+function test() {
+  return (req,res,next) => {
+    console.log(req.user)
+    next()
+  }
+}
  
 router.post("/familysignup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  const familyname = req.body.familyname;
+  const familyName = req.body.familyName;
  
   if (username === "" || password === "") {
     res.render("auth/familysignup", { message: "Indicate username and password" });
@@ -44,7 +51,7 @@ router.post("/familysignup", (req, res, next) => {
     const newFamily = new Family({
       username,
       password: hashPass,
-      familyname
+      familyName
     });
  
     newFamily.save((err) => {
@@ -73,34 +80,23 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-   User.find().then(users => {
-    res.render('users', { usersList: users });
-  })
- // res.render("/private", { user: req.user });
-});
-
-/* router.post("/private-page", ensureLogin.ensureLoggedIn(), (req, res)=> {
-  const {username, name, birthday, phone_Number, e_mail} = req.body;
-  User.create ({
-     username: username,
-    // password = password;
-     name: name,
-     birthday:birthday,
-     phone_Number: phone_Number,
-     e_mail: e_mail
-  }).then(user => {
-    console.log(`Success ${user} was added to the database`);
-    res.redirect(`/private/${user._id}`);
-  }).catch(err => {
-    console.log(err);
-    // logs the error to the console
-    next(err);
-
-  })
+/*router.get("/private",ensureLogin.ensureLoggedIn(),  (req, res) => {
+  console.log(req.user, "USER")
+  
+    res.render('private');
+  
 }); */
 
-router.get("/addmember", (req, res, next) => {
+router.get("/private",  (req, res) => {
+  console.log(req.user, "USER")
+
+    res.render('private');
+  
+});
+
+
+router.get("/addmember", test(), (req, res, next) => {
+  console.log(req.user, "USER GET")
   res.render("auth/addmember");
 });
 
@@ -111,7 +107,7 @@ router.post("/addmember", (req, res, next) => {
   const birthday = req.body.birthday;
   const phone_Number = req.body.phone_Number;
   const e_mail = req.body.e_mail;
- 
+  console.log(req.user, "USER POST");
   if (username === "" || password === "") {
     res.render("auth/addmember", { message: "Indicate username and password" });
     return;
@@ -133,7 +129,8 @@ router.post("/addmember", (req, res, next) => {
       name,
       birthday,
       phone_Number,
-      e_mail
+      e_mail,
+      family: req.family._id
     });
  
     newUser.save((err) => {
@@ -151,7 +148,7 @@ router.post("/addmember", (req, res, next) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
  
 module.exports = router;
