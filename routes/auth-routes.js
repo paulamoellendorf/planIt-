@@ -20,11 +20,12 @@ const session = require("express-session");
 router.get("/familysignup", (req, res, next) => {
   res.render("auth/familysignup");
 });
+
  
 router.post("/familysignup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  const familyname = req.body.familyname;
+  const familyName = req.body.familyName;
  
   if (username === "" || password === "") {
     res.render("auth/familysignup", { message: "Indicate username and password" });
@@ -44,7 +45,7 @@ router.post("/familysignup", (req, res, next) => {
     const newFamily = new Family({
       username,
       password: hashPass,
-      familyname
+      familyName
     });
  
     newFamily.save((err) => {
@@ -73,35 +74,8 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-   User.find().then(users => {
-    res.render('users', { usersList: users });
-  })
- // res.render("/private", { user: req.user });
-});
-
-/* router.post("/private-page", ensureLogin.ensureLoggedIn(), (req, res)=> {
-  const {username, name, birthday, phone_Number, e_mail} = req.body;
-  User.create ({
-     username: username,
-    // password = password;
-     name: name,
-     birthday:birthday,
-     phone_Number: phone_Number,
-     e_mail: e_mail
-  }).then(user => {
-    console.log(`Success ${user} was added to the database`);
-    res.redirect(`/private/${user._id}`);
-  }).catch(err => {
-    console.log(err);
-    // logs the error to the console
-    next(err);
-
-  })
-}); */
-
-router.get("/addmember", (req, res, next) => {
-  res.render("auth/addmember");
+router.get("/addmember",  (req, res) => {
+    res.render('auth/addmember');
 });
 
 router.post("/addmember", (req, res, next) => {
@@ -111,20 +85,53 @@ router.post("/addmember", (req, res, next) => {
   const birthday = req.body.birthday;
   const phone_Number = req.body.phone_Number;
   const e_mail = req.body.e_mail;
- 
+  const familyID = req.user._id;
+
   if (username === "" || password === "") {
     res.render("auth/addmember", { message: "Indicate username and password" });
     return;
   }
- 
+
   User.findOne({ username })
-  .then(user => {
-    if (user !== null) {
-      res.render("auth/addmember", { message: "The username already exists" });
-      return;
-    }
+    .then((user) => {
+      if (user !== null) {
+        res.render("auth/addmember", {
+          message: "The username already exists",
+        });
+        return;
+      }
+
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashPass = bcrypt.hashSync(password, salt);
+
+      User.create({
+        username,
+        password: hashPass,
+        name,
+        birthday,
+        phone_Number,
+        e_mail,
+        family: familyID,
+      })
+        .then((newUser) => {
+          console.log(newUser)
+          Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
+          .then(family => {
+
+          res.redirect("/private");
+          }).catch(err => console.log(err))
+        })
+        .catch((err) => {
+          res.render("auth/addmember", { message: "Something went wrong" });
+          next(err);
+        });
+    })
+    .catch((error) => {
+      next(error);
+    });
+
  
-    const salt = bcrypt.genSaltSync(bcryptSalt);
+/*    const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
  
     const newUser = new User({
@@ -133,7 +140,8 @@ router.post("/addmember", (req, res, next) => {
       name,
       birthday,
       phone_Number,
-      e_mail
+      e_mail,
+      family: req.family._id
     });
  
     newUser.save((err) => {
@@ -146,12 +154,12 @@ router.post("/addmember", (req, res, next) => {
   })
   .catch(error => {
     next(error)
-  })
+  }) */
 }); 
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
  
 module.exports = router;

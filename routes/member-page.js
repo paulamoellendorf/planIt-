@@ -4,10 +4,10 @@ const User = require('../models/User');
 const Family = require('../models/Family');
 
 
-router.get('/private', (req, res, next) => {
-  const user=req.user;
-  console.log(req.user);
-  res.render('private', {user:user});
+router.get('/member-page', (req, res, next) => {
+
+
+  res.render('member-page');
 });
 
 module.exports = router;
