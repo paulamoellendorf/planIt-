@@ -138,5 +138,7 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
 const private = require('./routes/private');
 app.use('/', private);
+const goalsRoutes=require('./routes/goals');
+app.use('/', goalsRoutes);
 
 module.exports = app;
