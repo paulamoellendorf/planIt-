@@ -74,88 +74,64 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get("/addmember",  (req, res) => {
-    res.render('auth/addmember');
+router.get('/private', (req, res) => {
+  // get all the celebs
+  User.find().then(usersList => {
+    // render 'celebs' view with the data
+    res.render('private', {users: usersList,});
+  }).catch((error) => {
+    console.log(error);
+});
 });
 
-router.post("/addmember", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const name = req.body.name;
-  const birthday = req.body.birthday;
-  const phone_Number = req.body.phone_Number;
-  const e_mail = req.body.e_mail;
-  const familyID = req.user._id;
+router.get('/:id', (req, res, next) => {
+  //get individual celeb
+    User.findById(req.params.id).then(user => {
+      //render each celeb view with the data
+        res.render('members', {user: user});
+    }).catch((error) => {
+    console.log(error);
+    next();
+});
+});
 
-  if (username === "" || password === "") {
-    res.render("auth/addmember", { message: "Indicate username and password" });
-    return;
-  }
+router.get('/addmember', (req, res) => {
+  //create new celeb page
+  res.render('auth/addmember');
+});
 
-  User.findOne({ username })
-    .then((user) => {
-      if (user !== null) {
-        res.render("auth/addmember", {
-          message: "The username already exists",
-        });
-        return;
-      }
+router.post('/addmember', (req, res) => {
+  //post form for new celeb
+  const { name, birthday, phone_Number, e_mail} = req.body;
+  User.create({
+    name: name,
+    birthday: birthday,
+    phone_Number: phone_Number,
+    e_mail: e_mail
+  }).then(user => {
+    //render view for new celeb
+    console.log(`Success ${user} was added to the database`);
+    res.redirect(`/private`);
+  }).catch(err => {
+    console.log(err);
+    // logs the error to the console
+    next(err);
+  });
+});
 
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-
-      User.create({
-        username,
-        password: hashPass,
-        name,
-        birthday,
-        phone_Number,
-        e_mail,
-        family: familyID,
-      })
-        .then((newUser) => {
-          console.log(newUser)
-          Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
-          .then(family => {
-
-          res.redirect("/private");
-          }).catch(err => console.log(err))
-        })
-        .catch((err) => {
-          res.render("auth/addmember", { message: "Something went wrong" });
-          next(err);
-        });
+router.post('/:id/delete', (req, res) => {
+  User.findByIdAndRemove({ _id: req.params.id })
+    .then(() => {
+      res.redirect('/private');
     })
-    .catch((error) => {
-      next(error);
+    .catch(err => {
+      next(err);
     });
+});
 
- 
-/*    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
- 
-    const newUser = new User({
-      username,
-      password: hashPass,
-      name,
-      birthday,
-      phone_Number,
-      e_mail,
-      family: req.family._id
-    });
- 
-    newUser.save((err) => {
-      if (err) {
-        res.render("auth/addmember", { message: "Something went wrong" });
-      } else {
-        res.redirect("/private");
-      }
-    });
-  })
-  .catch(error => {
-    next(error)
-  }) */
-}); 
+
+
+
 
 router.get("/logout", (req, res) => {
   req.logout();

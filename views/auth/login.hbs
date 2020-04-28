@@ -1,16 +1,43 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-</form>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">   
+     <div class="login-form-bg h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-6">
+                    <div class="form-input-content">
+                      <div class="card login-form mb-0">
+                            <div class="card-body pt-5">
+                                <h4 class="text-center">Login</h4>
+                                  <form action="/login" method="POST" class="mt-5 mb-5 login-input">
+                                    <div class="form-group">
+                                     <label for="username">Username:</label>
+                                       <input type="text" name="username">
+                                         </div>
+                                           <div class="form-group">
+                                             <label for="password">Password:</label>
+                                             <input type="password" name="password">
+                                            </div>
+                                           {{#if message}}
+                                         <div class="error-message">{{ message }}</div>
+                                      {{/if}}
+                                    <button class="btn login-form__btn submit w-100">Sign In</button>
+                                  </form>
+                                <p class="mt-5 login-form__footer">Dont have account? <a href="/familysignup" class="text-primary">Sign Up</a> now</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <html>
+
+                    

@@ -1,18 +1,16 @@
 Family page
-{{#if user}}
+{{#if family}}
   <div>
-    <a href="/">Index</a>
+    {{#each users}}
+ <h2><a href="/members/{{_id}}">{{this.name}}</a></h2>
+{{/each}}
   </div>
  
 {{/if}}
+<div>
+<p> <a href="addgoal">Create your Goal!</a></p>
+<p><a href="addmember">Add a family member here</a></p>
+<p><a href="goalsList">goals List</a></p>
+<p><a href="/logout">Logout</a></p>
+</div>
 
-
- <a href="addgoal">Create your Goal!</a>
-<a href="addmember">Add a family member here</a>
-<a href="goalsList">goals List</a>
-
-
-<br><br>
-<a href="/logout">Logout</a>
-
-<br><br>

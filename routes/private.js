@@ -6,8 +6,11 @@ const Family = require('../models/Family');
 
 router.get('/private', (req, res, next) => {
   const user=req.user;
-  console.log(req.user);
-  res.render('private', {user:user});
+  User.find().then(usersList => {
+    console.log(req.user);
+    res.render('private', {user:user});
+  })
+ 
 });
 
 module.exports = router;

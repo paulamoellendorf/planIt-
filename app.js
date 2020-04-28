@@ -127,8 +127,10 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
 const private = require('./routes/private');
 app.use('/', private);
-const goalsRoutes=require('./routes/goals');
+const goalsRoutes = require('./routes/goals');
 app.use('/', goalsRoutes);
+const members = require('./routes/members');
+app.use('/', members);
 
 
 module.exports = app;
