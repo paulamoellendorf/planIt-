@@ -1,11 +1,25 @@
-
-<ul>
+<div class="goalsList">
+<ul style="list-style-type: none;">
 {{#each goalsList}}
 <li>{{goal}} {{limit}}</li>
-<p id="demo"></p>
-<script>
 
-  var deadline = {{limit}};
+<button style="display: none;" id="try">Collect the goal!</button>
+<p id="demo"></p>
+
+
+<script>
+var list = document.querySelector('ul');
+
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+
+   ev.target.classList.toggle('checked');
+   var button= document.getElementById('try');
+button.style.display='block';
+    
+  }
+}, false);
+  /*var deadline = {{limit}};
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
 var t = deadline - now; 
@@ -19,8 +33,12 @@ document.getElementById("demo").innerHTML = days + "d "
         clearInterval(x); 
         document.getElementById("demo").innerHTML = "EXPIRED"; 
     } 
-}, 1000)
+}, 1000)*/
 </script>
 
 {{/each}}
 </ul>
+
+
+
+</div>

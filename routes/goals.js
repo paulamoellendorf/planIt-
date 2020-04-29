@@ -38,6 +38,8 @@ router.post('/addgoal', (req,res,next) =>{
   });
 });
 
+router.get('')
+
 
 
 
