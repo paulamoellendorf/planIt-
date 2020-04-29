@@ -79,34 +79,12 @@ router.get("/addmember",  (req, res) => {
 });
 
 router.post("/addmember", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
   const name = req.body.name;
   const birthday = req.body.birthday;
   const phone_Number = req.body.phone_Number;
   const e_mail = req.body.e_mail;
   const familyID = req.user._id;
-
-  if (username === "" || password === "") {
-    res.render("auth/addmember", { message: "Indicate username and password" });
-    return;
-  }
-
-  User.findOne({ username })
-    .then((user) => {
-      if (user !== null) {
-        res.render("auth/addmember", {
-          message: "The username already exists",
-        });
-        return;
-      }
-
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-
       User.create({
-        username,
-        password: hashPass,
         name,
         birthday,
         phone_Number,
@@ -124,12 +102,8 @@ router.post("/addmember", (req, res, next) => {
           res.render("auth/addmember", { message: "Something went wrong" });
           next(err);
         });
-    })
-    .catch((error) => {
-      next(error);
     });
 
-}); 
 
 
 
