@@ -74,63 +74,63 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get('/private', (req, res, next) => {
-  const familyID=req.user._id;
-  Family.findById(familyID).populate("members").then(family => {
-    console.log(family.members);
-    res.render('private');
-  })
- 
+router.get("/addmember",  (req, res) => {
+    res.render('auth/addmember');
 });
 
-router.get('/:id', (req, res, next) => {
-  //get individual celeb
-    User.findById(req.params.id).then(user => {
-      //render each celeb view with the data
-        res.render('members', {user: user});
-    }).catch((error) => {
-    console.log(error);
-    next();
-});
-});
+router.post("/addmember", (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const name = req.body.name;
+  const birthday = req.body.birthday;
+  const phone_Number = req.body.phone_Number;
+  const e_mail = req.body.e_mail;
+  const familyID = req.user._id;
 
-router.get('/addmember', (req, res) => {
-  //create new celeb page
-  res.render('auth/addmember');
-});
+  if (username === "" || password === "") {
+    res.render("auth/addmember", { message: "Indicate username and password" });
+    return;
+  }
 
-router.post('/addmember', (req, res) => {
-  //post form for new celeb
-  const { name, birthday, phone_Number, e_mail} = req.body;
-  User.create({
-    name: name,
-    birthday: birthday,
-    phone_Number: phone_Number,
-    e_mail: e_mail
-  }).then(user => {
-    //render view for new celeb
-    console.log(`Success ${user} was added to the database`);
-    res.redirect(`/private`);
-  }).catch(err => {
-    console.log(err);
-    // logs the error to the console
-    next(err);
-  });
-});
+  User.findOne({ username })
+    .then((user) => {
+      if (user !== null) {
+        res.render("auth/addmember", {
+          message: "The username already exists",
+        });
+        return;
+      }
 
-router.post('/:id/delete', (req, res) => {
-  User.findByIdAndRemove({ _id: req.params.id })
-    .then(() => {
-      res.redirect('/private');
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashPass = bcrypt.hashSync(password, salt);
+
+      User.create({
+        username,
+        password: hashPass,
+        name,
+        birthday,
+        phone_Number,
+        e_mail,
+        family: familyID,
+      })
+        .then((newUser) => {
+          console.log(newUser)
+          Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
+          .then(family => {
+
+          res.redirect("/private");
+          }).catch(err => console.log(err))
+        })
+        .catch((err) => {
+          res.render("auth/addmember", { message: "Something went wrong" });
+          next(err);
+        });
     })
-    .catch(err => {
-      next(err);
+    .catch((error) => {
+      next(error);
     });
-});
 
-
-
-
+}); 
 
 router.get("/logout", (req, res) => {
   req.logout();
