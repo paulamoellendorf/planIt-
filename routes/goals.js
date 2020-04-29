@@ -2,10 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Goal = require('../models/Goal');
 
-
-
-
-router.get('/addgoal', (req,res,next) =>{
+router.get('/addgoal', (req,res) =>{
   res.render('goals/addgoal');
 });
 
@@ -45,3 +42,4 @@ router.post('/addgoal', (req,res,next) =>{
 
 
 module.exports = router;
+
