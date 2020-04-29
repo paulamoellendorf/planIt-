@@ -11,6 +11,18 @@ router.get('/private', (req, res, next) => {
   })
 });
 
+/*router.get('/private', (req, res, next) => {
+  const familyID=req.user._id;
+  Family.findById(familyID).populate("members").then(family => {
+    let membersGoals = family.members.reduce((obj,member) => {
+      return obj[member.name] = member.goals.length
+    }, {});
+    console.log(membersGoals, "MEMBERSGOALS");
+    console.log(family.members);
+    res.render('private', {family: family, chartInfo: membersGoals});
+  })
+});*/
+
 
 // ../member/:id
 // USER.findById(req.params.id).then(user..)

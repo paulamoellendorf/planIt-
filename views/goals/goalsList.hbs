@@ -3,15 +3,15 @@
 <form action="/addGoalToMember"  method="post">
 
 <label for="goal">THE GOALS</label>
-<select multiple class="form-control form-control-lg" name="goal" id="goalsList">
-<ul>
+<select multiple class="selectpicker show-tick form-control form-control-lg" name="goal" id="goalsList">
+
 {{#each goalsList}}
-<li role="option"><option value="{{_id}}"></li>
+<option value="{{_id}}">
 {{goal}}
 <p id="demo"></p>
 </option>
 {{/each}}
-</ul>
+
 </select>
 
 <div class="memberSelect">

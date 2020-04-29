@@ -83,11 +83,8 @@
   <h2>{{family.familyName}} Goals</h2>
   <p>Displays amount of goals completed by each member</p> 
   {{#each family.members}}
-<div class="progress w-50 p-3">
-  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-    {{this.name}}
-  </div>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
    {{/each}}
 </div>
