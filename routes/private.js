@@ -10,4 +10,6 @@ router.get('/private', (req, res, next) => {
   res.render('private', {user:user});
 });
 
+
+
 module.exports = router;
