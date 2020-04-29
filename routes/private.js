@@ -11,6 +11,7 @@ router.get('/private', (req, res, next) => {
   })
 });
 
+
 // ../member/:id
 // USER.findById(req.params.id).then(user..)
 //href="/merber/{{this._id}}"
@@ -20,4 +21,7 @@ router.get('/private/:id', (req, res, next) => {
     res.render('member', {member: member});
   })
 });
+
+
+
 module.exports = router;
