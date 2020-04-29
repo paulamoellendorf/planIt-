@@ -3,10 +3,10 @@
 <form action="/addGoalToMember"  method="post">
 
 <label for="goal">THE GOALS</label>
-<select name="goal" id="">
-
+<select multiple class="form-control form-control-lg" name="goal" id="goalsList">
+<ul>
 {{#each goalsList}}
-<option value="{{_id}}">
+<li role="option"><option value="{{_id}}"></li>
 {{goal}}
 <p id="demo"></p>
 </option>
@@ -14,15 +14,19 @@
 </ul>
 </select>
 
-
+<div class="memberSelect">
 <label for="member">who is getting the point?</label>
+
 <select name="member" id="">
+  
   {{#each family.members}}
   <option value="{{_id}}">{{name}}</option>
   {{/each}}
+ 
 </select>
-<button type="submit">get the goal</button>
 
+<button type="submit">get the goal</button>
+</div>
 </form>
 
 
