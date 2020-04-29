@@ -117,7 +117,6 @@ router.post("/addmember", (req, res, next) => {
           console.log(newUser)
           Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
           .then(family => {
-
           res.redirect("/private");
           }).catch(err => console.log(err))
         })
@@ -131,6 +130,8 @@ router.post("/addmember", (req, res, next) => {
     });
 
 }); 
+
+
 
 router.get("/logout", (req, res) => {
   req.logout();

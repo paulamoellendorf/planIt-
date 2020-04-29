@@ -1,25 +1,45 @@
 <!-- views/auth/familysignup.hbs -->
-<h2>Family Signup</h2>
- 
-<form action="/familysignup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
-  <label for="familyName">Family Name</label>
-  <input id="familyName" type="text" name="familyName" placeholder="House Stark">
-  <br><br>
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <br><br>
- 
-  <button>Create Family</button>
- 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/login">Login</a>
-  </p>
-</form>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">   
+     <div class="login-form-bg h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-6">
+                    <div class="form-input-content">
+                      <div class="card login-form mb-0">
+                            <div class="card-body pt-5">
+                                <h4 class="text-center">Family Signup</h4>
+                                  <form action="/login" method="POST" class="mt-5 mb-5 login-input">
+                                    <div class="form-group">
+                                     <label for="username">Username:</label>
+                                       <input type="text" name="username">
+                                         </div>
+                                           <div class="form-group">
+                                             <label for="password">Password:</label>
+                                             <input type="password" name="password">
+                                            </div>
+                                            <div class="form-group">
+                                               <label for="familyName">Family Name</label>
+                                               <input type="text" name="familyName">
+                                            </div>
+                                           {{#if message}}
+                                         <div class="error-message">{{ message }}</div>
+                                      {{/if}}
+                                    <button class="btn login-form__btn submit w-100">Create Family</button>
+                                  </form>
+                                <p class="mt-5 login-form__footer">Already have account? <a href="/login" class="text-primary">Login</a> here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <html>
