@@ -74,14 +74,13 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get('/private', (req, res) => {
-  // get all the celebs
-  User.find().then(usersList => {
-    // render 'celebs' view with the data
-    res.render('private', {users: usersList,});
-  }).catch((error) => {
-    console.log(error);
-});
+router.get('/private', (req, res, next) => {
+  const familyID=req.user._id;
+  Family.findById(familyID).populate("members").then(family => {
+    console.log(family.members);
+    res.render('private');
+  })
+ 
 });
 
 router.get('/:id', (req, res, next) => {

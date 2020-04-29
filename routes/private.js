@@ -5,9 +5,9 @@ const Family = require('../models/Family');
 
 
 router.get('/private', (req, res, next) => {
-  const user=req.user;
-  User.find().then(usersList => {
-    console.log(req.user);
+  const familyID=req.user._id;
+  Family.findById(familyID).populate("members").then(family => {
+    console.log(family);
     res.render('private', {user:user});
   })
  
