@@ -81,6 +81,7 @@ a {
   border: 1px solid transparent;
   line-height: 1.5;
   border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   width: 100% !important;
   color: blue;
   font-size: 14px;
