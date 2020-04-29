@@ -1,12 +1,32 @@
 <div class="goalsList">
-<ul style="list-style-type: none;">
+
+<form action="/addGoalToMember"  method="post">
+
+<label for="goal">THE GOALS</label>
+<select name="goal" id="">
+
 {{#each goalsList}}
-<li>{{goal}} {{limit}}</li>
-
-<button style="display: none;" id="try">Collect the goal!</button>
+<option value="{{_id}}">
+{{goal}}
 <p id="demo"></p>
+</option>
+{{/each}}
+</ul>
+</select>
 
 
+<label for="member">who is getting the point?</label>
+<select name="member" id="">
+  {{#each family.members}}
+  <option value="{{_id}}">{{name}}</option>
+  {{/each}}
+</select>
+<button type="submit">get the goal</button>
+
+</form>
+
+
+</div>
 <script>
 var list = document.querySelector('ul');
 
@@ -14,8 +34,8 @@ list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
 
    ev.target.classList.toggle('checked');
-   var button= document.getElementById('try');
-button.style.display='block';
+   var form= document.getElementById('try');
+form.style.display='block';
     
   }
 }, false);
@@ -36,9 +56,3 @@ document.getElementById("demo").innerHTML = days + "d "
 }, 1000)*/
 </script>
 
-{{/each}}
-</ul>
-
-
-
-</div>
