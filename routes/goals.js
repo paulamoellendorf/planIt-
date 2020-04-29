@@ -49,9 +49,15 @@ router.post('/addGoalToMember', (req,res,next) =>{
   //res.send(req.body);
   User.findByIdAndUpdate(req.body.member, {
     goals:req.body.goal,
-  }).then(user =>{
+  })
+  .then(user =>{
     console.log(`Success ${user} got updated`);
-    res.redirect('/private');
+    Goal.findByIdAndDelete(req.body.goal)
+    .then(goal=>{
+      console.log(`Success ${goal} got deleted`);
+      res.redirect('/private')
+    })
+    
   }).catch(err =>{
     console.og(err);
     next(err);
