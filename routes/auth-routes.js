@@ -79,34 +79,12 @@ router.get("/addmember",  (req, res) => {
 });
 
 router.post("/addmember", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
   const name = req.body.name;
   const birthday = req.body.birthday;
   const phone_Number = req.body.phone_Number;
   const e_mail = req.body.e_mail;
   const familyID = req.user._id;
-
-  if (username === "" || password === "") {
-    res.render("auth/addmember", { message: "Indicate username and password" });
-    return;
-  }
-
-  User.findOne({ username })
-    .then((user) => {
-      if (user !== null) {
-        res.render("auth/addmember", {
-          message: "The username already exists",
-        });
-        return;
-      }
-
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-
       User.create({
-        username,
-        password: hashPass,
         name,
         birthday,
         phone_Number,
@@ -117,7 +95,6 @@ router.post("/addmember", (req, res, next) => {
           console.log(newUser)
           Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
           .then(family => {
-
           res.redirect("/private");
           }).catch(err => console.log(err))
         })
@@ -125,37 +102,10 @@ router.post("/addmember", (req, res, next) => {
           res.render("auth/addmember", { message: "Something went wrong" });
           next(err);
         });
-    })
-    .catch((error) => {
-      next(error);
     });
 
- 
-/*    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
- 
-    const newUser = new User({
-      username,
-      password: hashPass,
-      name,
-      birthday,
-      phone_Number,
-      e_mail,
-      family: req.family._id
-    });
- 
-    newUser.save((err) => {
-      if (err) {
-        res.render("auth/addmember", { message: "Something went wrong" });
-      } else {
-        res.redirect("/private");
-      }
-    });
-  })
-  .catch(error => {
-    next(error)
-  }) */
-}); 
+
+
 
 router.get("/logout", (req, res) => {
   req.logout();

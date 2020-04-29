@@ -119,7 +119,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "PlanIt!";
 
 
 const index = require('./routes/index');
@@ -128,6 +128,10 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
 const goalsRoutes=require('./routes/goals');
 app.use('/', goalsRoutes);
+
+const member = require('./routes/member');
+app.use('/', member);
+
 const private = require('./routes/private');
 app.use('/', private);
 
