@@ -20,6 +20,7 @@ const MongoStore = require("connect-mongo")(session);
 // require Models
 const User = require("./models/User.js");
 const Family = require("./models/Family.js");
+const Goal =require("./models/Goal.js");
 
 mongoose
   .connect("mongodb://localhost/planit", {
@@ -125,10 +126,11 @@ const index = require('./routes/index');
 app.use('/', index);
 const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
-const private = require('./routes/private');
-app.use('/', private);
 const goalsRoutes=require('./routes/goals');
 app.use('/', goalsRoutes);
+const private = require('./routes/private');
+app.use('/', private);
+
 
 
 module.exports = app;
