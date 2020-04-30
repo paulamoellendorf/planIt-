@@ -18,7 +18,8 @@ const session = require("express-session");
 
 
 router.get("/familysignup", (req, res, next) => {
-  res.render("auth/familysignup");
+  let loggedIn = req.user ? true : false;
+  res.render("auth/familysignup", { loggedIn });
 });
 
  
@@ -64,7 +65,8 @@ router.post("/familysignup", (req, res, next) => {
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  let loggedIn = req.user ? true : false;
+  res.render("auth/login", { "message": req.flash("error"), loggedIn });
 });
  
 router.post("/login", passport.authenticate("local", {
@@ -75,7 +77,8 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 router.get("/addmember",  (req, res) => {
-    res.render('auth/addmember');
+  let loggedIn = req.user ? true : false;
+    res.render('auth/addmember', { loggedIn });
 });
 
 router.post("/addmember", (req, res, next) => {

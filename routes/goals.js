@@ -5,18 +5,20 @@ const Family= require('../models/Family');
 const User=require('../models/User');
 
 router.get('/addgoal', (req,res) =>{
-  res.render('goals/addgoal');
+  let loggedIn = req.user ? true : false;
+  res.render('goals/addgoal', { loggedIn });
 });
 
 
 router.get('/goalsList', (req,res, next) =>{
 
+  let loggedIn = req.user ? true : false;
   Goal.find({ family: req.user._id })
     .then(goals=> {
     
      Family.findById(req.user._id).populate("members").then(family => {
      // console.log(family.members);
-      res.render('goals/goalsList', { goalsList:goals, family:family })
+      res.render('goals/goalsList', { goalsList:goals, family:family, loggedIn })
     })
     
     .catch(err => {

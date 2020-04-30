@@ -25,6 +25,9 @@ body {
   justify-content: center;
   flex-direction: column; }
 
+.h-100r {
+  flex-direction: row; }
+
 .options {
   display: flex;
   justify-content: space-evenly;
