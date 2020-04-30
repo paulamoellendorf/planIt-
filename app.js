@@ -23,7 +23,7 @@ const Family = require("./models/Family.js");
 const Goal =require("./models/Goal.js");
 
 mongoose
-  .connect("mongodb://localhost/planit", {
+  .connect(process.env.MONGODB_URL || "mongodb://localhost/planit", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
