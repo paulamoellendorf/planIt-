@@ -11,17 +11,19 @@ body {
   color: white;
   text-align: center;
   text-decoration: none; }
-  body .row {
-    display: flex;
-    justify-content: center;
-    flex-direction: column; }
-  body .options {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    padding: 10px;
-    margin: 10;
-    color: white; }
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10;
+  color: white; }
 
 .container-fluid {
   background-color: #6F8AB7;
@@ -39,6 +41,8 @@ body {
 a .nav-link {
   color: black; }
 
+.links {
+  color: white !important; }
 
 .mastfoot .mt-auto {
   background-color: #6F8AB7;
@@ -56,14 +60,12 @@ a .nav-link {
   display: flex;
   justify-content: center; }
 
-
 .card-body {
   width: 40rem;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center; }
-
 
 .form-group {
   font-family: "Roboto", sans-serif;
@@ -85,6 +87,12 @@ a .nav-link {
     display: flex;
     text-align: center; }
 
+h2 {
+  color: white; }
+
+p {
+  color: white; }
+
 .login-input > button {
   height: 2rem;
   width: 8rem;
@@ -94,34 +102,34 @@ a .nav-link {
   background-color: lightgray;
   border-radius: 5rem; }
 
+.form-group {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  outline: none;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px; }
+
 .homeLink {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center; }
 
-
-h1 {
-  color: white; }
-
-h2 {
-  color: white; }
-
-p {
-  color: white; }
-
 .homeLink > img {
   padding: 6px 12px;
   display: flex;
   flex-direction: row; }
-
 
 .login-form__btn {
   width: 1100px; }
 
 p .mt-5 .login-form__footer {
   color: black; }
-
 
 .btn .login-form__btn .submit .w-100 {
   outline: none;
@@ -190,7 +198,6 @@ p .mt-5 .login-form__footer {
 .goalsList {
   padding: 20rem;
   padding-top: 7rem; }
-
 
 .goalsList > ul li {
   cursor: pointer;
