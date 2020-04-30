@@ -1,12 +1,9 @@
-@font-face {
-	font-family: 'DoodleJump';
-	src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
-}
+
 
 /* sample using the font */
 body {
 padding: 10px;
-font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+font:14px "Lucida Grande", Helvetica, Arial, sans-serif; 
 margin: 0;
 font-size: 1rem;
 font-weight: 400;
@@ -31,70 +28,44 @@ color: #020122;
   padding: 1px;
   margin: 0;
 }
-.navbar-brand{
 
-}
-a {
-  color: #white;
-}
 
 .mastfoot .mt-auto{
 background-color: #020122;
 color: #020122;
 }
-.buttons{
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  padding: 10px;
-  margin: 10;
-}
 
-a .btn .btn-lg .btn-secondary{
-padding: 10px;
-margin: 50px;
-}
 
-.login-form-bg .h-100{
-padding: 50px;
-background-color: #020122;
-}
 
-.card .login-form .mb-0{
-  font-family: "Roboto", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  outline: none;
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+
+
+
+
+
+
+
+
+
+//styling homepage
+.col-xl-6{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  width:100px;
   display: flex;
   justify-content: center;
-  flex-direction: column; }
-
-
-h1{
-color: white;
+  align-items: center;
 }
-p{
-  color: white;
+.row{
+  display: flex;
+  justify-content: center;
 }
 
-  .mt-5 .mb-5 .login-input {  
-  font-family: "Roboto", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
-  outline: none;
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+.card-body{
+width:40rem;
+margin-top:3rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
  .form-group {
@@ -102,42 +73,62 @@ p{
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  
-  text-align: left;
+  text-align: center;
   outline: none;
   box-sizing: inherit;
-  margin: 0;
-  padding: 0;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
+
+.form-group >input{
+border-radius: 10rem;
+height:3rem;
+&::placeholder {
+  color: lightgray;
+  display: flex;
+  text-align: center;
+}
+}
+
+.login-input >button {
+  height:2rem;
+  width:8rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 10px;
+  background-color: lightgray;
+  border-radius: 5rem;
+  
+}
+
+.homeLink{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeLink>img{
+  padding:6px 12px;
+  display: flex;
+  flex-direction: row;
+}
+.login-form__btn{
+  width: 1100px;
+}
+
 
 p .mt-5 .login-form__footer{
 color: black;
 }
-.btn .login-form__btn .submit .w-100 {
-  outline: none;
-  box-sizing: inherit;
-  margin: 0;
-  font-family: inherit;
-  overflow: visible;
-  text-transform: none;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  border: 1px solid transparent;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  width: 100% ;
-  font-size: 14px;
-  padding: 15px 40px;
-  color: #020122;
-  background: #020122;
-  font-weight: 700;
-}
-.progress{
-  width: 62%;
+
+//styling goalsList
+
+.goalsList{
+  padding:20rem;
+  padding-top: 7rem;
 }
 .goalsList >ul li {
   cursor: pointer;
@@ -172,6 +163,8 @@ color: black;
 }
 
 /* Add a "checked" mark when clicked on */
+
+
 .goalsList >ul li.checked::before {
   content: '';
   position: absolute;
@@ -186,7 +179,7 @@ color: black;
 }
 
 .goalsList>form{
-  margin-top: 3rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -195,11 +188,51 @@ color: black;
 
 }
 
+.goalsList>form>label{
+  margin-bottom: 2rem;
+  width:30rem;
+  font-size: 30px;
+}
+
 #goalsList{
   width:30rem;
   height:20rem;
 }
+//styling addgoals
 
+.goalFormSite{
+  padding:20rem;
+  padding-top: 5rem;
+
+}
+.goalForm{
+  margin-top: 2rem;
+}
+ 
+.goalFormGroup >input{
+  border-radius: 5rem ;
+  text-align: center;
+  line-height: 2rem;
+  margin-top:3rem;
+  margin-bottom: 1rem;
+ 
+}
+
+.goalFormGroup> button{
+  border-radius: 5rem;
+  margin-top: 4rem;
+  line-height: 3rem;
+}
+
+.countdown{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.countdown >input{
+ margin-left:25rem;
+ margin-right: 25rem;
+}
 
 .memberSelect{
   display: flex;
@@ -209,8 +242,45 @@ color: black;
   margin-top: 2rem;
 }
 .memberSelect>select{
-  margin-top: 2rem;
+  margin-top: 1rem;
+  height:2rem;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+
+}
+
+.memberSelect::-ms-expand{
+  display: none;
+}
+.memberSelect:focus::-ms-value{
+  background-color: transparent;
+}
+.memberSelect>option{
+  color: #666;
+}
+.memberSelect{
+  position: relative;
+}
+.memberSelect>select-wrapper::before{
+  font-family: fontello;
+  content: "\f107";
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #fff;
+  pointer-events: none;
+
 }
 .memberSelect>button{
   margin-top: 2rem;
+  border-radius: 3rem;
 }
+
+
