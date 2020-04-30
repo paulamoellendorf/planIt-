@@ -3,14 +3,6 @@ const router  = express.Router();
 const User = require('../models/User');
 const Family = require('../models/Family');
 
-/*router.get('/private', (req, res, next) => {
-  const familyID=req.user._id;
-  Family.findById(familyID).populate("members").then(family => {
-    //console.log(family.members);
-    res.render('private', {family: family});
-  })
-});*/
-
 router.get('/private', (req, res, next) => {
   const familyID=req.user._id;
   Family.findById(familyID).populate("members").then(family => {
@@ -24,9 +16,9 @@ router.get('/private', (req, res, next) => {
       });
     })
     membersGoals.forEach(member => member.percent = Math.floor((member.goals / countGoals) * 100))
-    console.log(membersGoals, "MEMBERSGOALS");
-    console.log(countGoals, "COUNTGOALS");
-    console.log(family.members);
+   // console.log(membersGoals, "MEMBERSGOALS");
+  //  console.log(countGoals, "COUNTGOALS");
+   // console.log(family.members);
     res.render('private', {family: family, chartInfo: membersGoals});
   })
 });

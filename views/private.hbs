@@ -1,56 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+<head></head>
 <body>
-<div class="container-fluid text-center">    
-  <div class="row">
-<div class="col-sm-3 sidenav">
-       {{#each family.members}}
-      <div class="well">
-         <p><a href="/private/{{this._id}}">{{this.name}}</a></p>
-      </div>
-       {{/each}}
-    </div>
-    <div class="col-sm-6 text-center"> 
+<div class="container-fluid">    
+ <main role="main" class="inner cover">
       <h1>Welcome {{family.familyName}} Family</h1>
-      <p> Here you can create family member pages, set goals, and see the progress of your family goals.</p>
       <hr>
         <h2>{{family.familyName}} Goals</h2>
-  <p>Displays amount of goals completed by each member</p> 
-
-  
-
-
-  {{#each chartInfo}}
-  
-  <div>{{name}}</div>
-<div class="progress">
+  <div class="page">
+  <div class="col-sm-4">         
+  {{#each family.members}}
+    <p><a class= "links" href="/private/{{this._id}}">{{this.name}}</a></p>
+       {{/each}}
+       </div>
+  <div class="chart col-sm-8"> 
+ {{#each chartInfo}}
+  <div>
+  <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100"></div>
-
 </div>
-
+<p>{{percent}} % goals completed</p> 
+  </div>
    {{/each}}
 </div>
+</div>
+</div>
+    <div class="options">
+    <div><p> <a class= "links" href="addgoal">Launch your Goals!</a></p></div>
+    <div><p><a class= "links" href="addmember">Add a family member here</a></p></div>
+    <div><p><a class= "links" href="goalsList">Goals List</a></p></div>  
     </div>
-    <div class="col-sm-3 sidenav">
-      <div class="well">
-        <p> <a href="addgoal">Create your Goal!</a></p>
-      </div>
-      <div class="well">
-        <p><a href="addmember">Add a family member here</a></p>
-      </div>
-            <div class="well">
-        <p><a href="goalsList">Goals List</a></p>
-      </div>
-    </div>
-  </div>
+     </main>
 </div>
 </body>
 </html>
