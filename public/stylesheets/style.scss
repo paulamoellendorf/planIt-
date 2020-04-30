@@ -6,7 +6,6 @@
 /* sample using the font */
 body {
 padding: 10px;
-font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 margin: 0;
 font-size: 1rem;
 font-weight: 400;
@@ -14,15 +13,31 @@ font-family: 'DoodleJump';
 line-height: 1.5;
 height: 100%;
 background-color: #90d2d8;
-color: #020122;
+color: #white;
 text-align: center;
+text-decoration: none;
 
+.row{
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+}
 
-
+.options{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10;
+  color: #white;
+}
 }
 .container-fluid{
 background-color: #6F8AB7;
-color: #020122;
+color: #white;
+font-family: 'DoodleJump';
+font-size: 2rem;
+font-weight: 400;
 }
 .cover-heading{
   padding: 20px;
@@ -35,11 +50,12 @@ color: #020122;
 
 }
 a {
-  color: #white;
+  color: #white !important;
+  text-decoration: none !important;
 }
 
 .mastfoot .mt-auto{
-background-color: #020122;
+background-color:  #6F8AB7;
 color: #020122;
 }
 .buttons{
@@ -57,7 +73,7 @@ margin: 50px;
 
 .login-form-bg .h-100{
 padding: 50px;
-background-color: #020122;
+background-color:  #6F8AB7;
 }
 
 .card .login-form .mb-0{
@@ -102,7 +118,6 @@ p{
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  
   text-align: left;
   outline: none;
   box-sizing: inherit;
@@ -137,8 +152,16 @@ color: black;
   font-weight: 700;
 }
 .progress{
-  width: 62%;
+  width: 100;
+
 }
+.chart{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis:  | auto;
+}
+
 .goalsList >ul li {
   cursor: pointer;
   position: relative;
