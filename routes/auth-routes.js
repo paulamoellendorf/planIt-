@@ -92,7 +92,6 @@ router.post("/addmember", (req, res, next) => {
         family: familyID,
       })
         .then((newUser) => {
-          console.log(newUser)
           Family.updateOne( {_id: familyID }, { $push: { members: newUser._id } })
           .then(family => {
           res.redirect("/private");

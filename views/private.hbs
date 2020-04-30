@@ -9,14 +9,22 @@
       <hr>
         <h2>{{family.familyName}} Goals</h2>
   <p>Displays amount of goals completed by each member</p> 
-  <div class="chart">  
-  {{#each chartInfo}}
-  <div><p><a href="/private/{{this._id}}">{{this.name}}</a></p></div>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100">
-  </div>
+  <div class="page">
+  <div class="col-sm-4">         
+  {{#each family.members}}
+    <p><a href="/private/{{this._id}}">{{this.name}}</a></p>
+       {{/each}}
+       </div>
+  <div class="chart col-sm-8"> 
+ {{#each chartInfo}}
+  <div>
+  <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+<p>{{percent}} % goals completed</p> 
+  </div>
    {{/each}}
+</div>
 </div>
 </div>
     <div class="options">

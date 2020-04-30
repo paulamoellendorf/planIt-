@@ -15,7 +15,7 @@ router.get('/goalsList', (req,res, next) =>{
     .then(goals=> {
     
      Family.findById(req.user._id).populate("members").then(family => {
-      console.log(family.members);
+     // console.log(family.members);
       res.render('goals/goalsList', { goalsList:goals, family:family })
     })
     
@@ -62,7 +62,7 @@ router.post('/addGoalToMember', (req,res,next) =>{
   
     })
   }).catch(err =>{
-    console.og(err);
+    console.log(err);
     next(err);
   });
   

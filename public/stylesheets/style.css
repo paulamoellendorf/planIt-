@@ -11,8 +11,8 @@ body {
   font-family: 'DoodleJump';
   line-height: 1.5;
   height: 100%;
-  background-color: #90d2d8;
-  color: #white;
+  background-color: #6F8AB7;
+  color: white;
   text-align: center;
   text-decoration: none; }
   body .row {
@@ -25,11 +25,11 @@ body {
     flex-direction: row;
     padding: 10px;
     margin: 10;
-    color: #white; }
+    color: white; }
 
 .container-fluid {
   background-color: #6F8AB7;
-  color: #white;
+  color: white;
   font-family: 'DoodleJump';
   font-size: 2rem;
   font-weight: 400; }
@@ -42,12 +42,11 @@ body {
   margin: 0; }
 
 a {
-  color: #white !important;
-  text-decoration: none !important; }
+  color: white !important; }
 
 .mastfoot .mt-auto {
   background-color: #6F8AB7;
-  color: #020122; }
+  color: white; }
 
 .buttons {
   display: flex;
@@ -135,14 +134,36 @@ p .mt-5 .login-form__footer {
   background: #020122;
   font-weight: 700; }
 
-.progress {
-  width: 100; }
+.progress-bar {
+  width: 100;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around; }
 
 .chart {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  flex-basis: | auto; }
+  padding: 10px; }
+
+.col-sm-4 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px; }
+
+.col-sm-8 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 1.5rem; }
+
+.page {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px; }
 
 .goalsList > ul li {
   cursor: pointer;
