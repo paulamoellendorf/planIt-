@@ -1,11 +1,9 @@
-@font-face {
-	font-family: 'DoodleJump';
-	src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
-}
+
 
 /* sample using the font */
 body {
 padding: 10px;
+
 margin: 0;
 font-size: 1rem;
 font-weight: 400;
@@ -46,6 +44,7 @@ font-weight: 400;
   margin: 0;
 }
 
+
  a .nav-link{
 
   color: black;
@@ -54,47 +53,69 @@ font-weight: 400;
   color: white !important;
 }
 
+
 .mastfoot .mt-auto{
 background-color:  #6F8AB7;
 color: white;
 }
-.buttons{
+
+
+
+
+
+
+
+
+
+
+
+
+//styling homepage
+.col-xl-6{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  width:100px;
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  padding: 10px;
-  margin: 10;
+  justify-content: center;
+  align-items: center;
+}
+.row{
+  display: flex;
+  justify-content: center;
 }
 
-a .btn .btn-lg .btn-secondary{
-padding: 10px;
-margin: 50px;
+
+.card-body{
+width:40rem;
+margin-top:3rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
 }
 
-.login-form-bg .h-100{
-padding: 50px;
-background-color:  #6F8AB7;
-}
-
-.card .login-form .mb-0{
-  font-family: "Roboto", sans-serif;
+ .form-group {
+   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
   outline: none;
   box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  flex-direction: column; }
-
-
-h1{
-color: white;
 }
+
+.form-group >input{
+border-radius: 10rem;
+height:3rem;
+&::placeholder {
+  color: lightgray;
+  display: flex;
+  text-align: center;
+}
+
 
 h2{
   color: white;
@@ -102,21 +123,20 @@ h2{
 
 p{
   color: white;
+
 }
 
-  .mt-5 .mb-5 .login-input {  
-  font-family: "Roboto", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
-  outline: none;
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+.login-input >button {
+  height:2rem;
+  width:8rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 10px;
+  background-color: lightgray;
+  border-radius: 5rem;
+  
 }
+
 
  .form-group {
    font-family: "Roboto", sans-serif;
@@ -129,11 +149,30 @@ p{
   margin: 0;
   padding: 0;
   margin-bottom: 30px;
+
+.homeLink{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
+
+.homeLink>img{
+  padding:6px 12px;
+  display: flex;
+  flex-direction: row;
+}
+.login-form__btn{
+  width: 1100px;
+
+}
+
 
 p .mt-5 .login-form__footer{
 color: black;
 }
+
 .btn .login-form__btn .submit .w-100 {
   outline: none;
   box-sizing: inherit;
@@ -200,6 +239,13 @@ padding: 0px 0px 22px 0px;
   justify-content: space-evenly;
   flex-direction: row;
   padding: 10px;
+
+//styling goalsList
+
+.goalsList{
+  padding:20rem;
+  padding-top: 7rem;
+
 }
 
 .goalsList >ul li {
@@ -235,6 +281,8 @@ padding: 0px 0px 22px 0px;
 }
 
 /* Add a "checked" mark when clicked on */
+
+
 .goalsList >ul li.checked::before {
   content: '';
   position: absolute;
@@ -249,7 +297,7 @@ padding: 0px 0px 22px 0px;
 }
 
 .goalsList>form{
-  margin-top: 3rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -258,11 +306,51 @@ padding: 0px 0px 22px 0px;
 
 }
 
+.goalsList>form>label{
+  margin-bottom: 2rem;
+  width:30rem;
+  font-size: 30px;
+}
+
 #goalsList{
   width:30rem;
   height:20rem;
 }
+//styling addgoals
 
+.goalFormSite{
+  padding:20rem;
+  padding-top: 5rem;
+
+}
+.goalForm{
+  margin-top: 2rem;
+}
+ 
+.goalFormGroup >input{
+  border-radius: 5rem ;
+  text-align: center;
+  line-height: 2rem;
+  margin-top:3rem;
+  margin-bottom: 1rem;
+ 
+}
+
+.goalFormGroup> button{
+  border-radius: 5rem;
+  margin-top: 4rem;
+  line-height: 3rem;
+}
+
+.countdown{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.countdown >input{
+ margin-left:25rem;
+ margin-right: 25rem;
+}
 
 .memberSelect{
   display: flex;
@@ -272,8 +360,45 @@ padding: 0px 0px 22px 0px;
   margin-top: 2rem;
 }
 .memberSelect>select{
-  margin-top: 2rem;
+  margin-top: 1rem;
+  height:2rem;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+
+}
+
+.memberSelect::-ms-expand{
+  display: none;
+}
+.memberSelect:focus::-ms-value{
+  background-color: transparent;
+}
+.memberSelect>option{
+  color: #666;
+}
+.memberSelect{
+  position: relative;
+}
+.memberSelect>select-wrapper::before{
+  font-family: fontello;
+  content: "\f107";
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #fff;
+  pointer-events: none;
+
 }
 .memberSelect>button{
   margin-top: 2rem;
+  border-radius: 3rem;
 }
+
+

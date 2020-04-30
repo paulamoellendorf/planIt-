@@ -25,24 +25,15 @@
  
 </select>
 
+
+
 <button type="submit">get the goal</button>
 </div>
 </form>
 
 
 </div>
-<script>
-var list = document.querySelector('ul');
 
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-
-   ev.target.classList.toggle('checked');
-   var form= document.getElementById('try');
-form.style.display='block';
-    
-  }
-}, false);
   /*var deadline = {{limit}};
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
@@ -58,5 +49,4 @@ document.getElementById("demo").innerHTML = days + "d "
         document.getElementById("demo").innerHTML = "EXPIRED"; 
     } 
 }, 1000)*/
-</script>
 
