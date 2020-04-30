@@ -22,11 +22,7 @@ body {
 
 .row {
   display: flex;
-  justify-content: center;
-  flex-direction: column; }
-
-.h-100r {
-  flex-direction: row; }
+  justify-content: center; }
 
 .options {
   display: flex;
