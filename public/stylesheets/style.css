@@ -29,7 +29,6 @@ body {
 
 .container-fluid {
   background-color: #6F8AB7;
-  color: white;
   font-family: 'DoodleJump';
   font-size: 2rem;
   font-weight: 400; }
@@ -41,7 +40,10 @@ body {
   padding: 1px;
   margin: 0; }
 
-a {
+a .nav-link {
+  color: black; }
+
+.links {
   color: white !important; }
 
 .mastfoot .mt-auto {
@@ -79,6 +81,9 @@ a .btn .btn-lg .btn-secondary {
   flex-direction: column; }
 
 h1 {
+  color: white; }
+
+h2 {
   color: white; }
 
 p {
@@ -148,20 +153,31 @@ p .mt-5 .login-form__footer {
 
 .col-sm-4 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
-  padding: 10px; }
+  padding: 1px 1px 1px 1px;
+  border-width: thin; }
+
+.col-sm-4 p {
+  margin: 0px;
+  padding: 0px 0px 22px 0px; }
 
 .col-sm-8 {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  padding: 10px;
+  padding: 12px;
   font-size: 1.5rem; }
 
 .page {
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  padding: 10px; }
+
+.members-page {
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
   padding: 10px; }
 

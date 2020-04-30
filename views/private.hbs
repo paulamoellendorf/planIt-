@@ -5,14 +5,12 @@
 <div class="container-fluid">    
  <main role="main" class="inner cover">
       <h1>Welcome {{family.familyName}} Family</h1>
-      <p> Here you can create family member pages, set goals, and see the progress of your family goals.</p>
       <hr>
         <h2>{{family.familyName}} Goals</h2>
-  <p>Displays amount of goals completed by each member</p> 
   <div class="page">
   <div class="col-sm-4">         
   {{#each family.members}}
-    <p><a href="/private/{{this._id}}">{{this.name}}</a></p>
+    <p><a class= "links" href="/private/{{this._id}}">{{this.name}}</a></p>
        {{/each}}
        </div>
   <div class="chart col-sm-8"> 
@@ -28,9 +26,9 @@
 </div>
 </div>
     <div class="options">
-    <div><p> <a href="addgoal">Create your Goal!</a></p></div>
-    <div><p><a href="addmember">Add a family member here</a></p></div>
-    <div><p><a href="goalsList">Goals List</a></p></div>  
+    <div><p> <a class= "links" href="addgoal">Launch your Goals!</a></p></div>
+    <div><p><a class= "links" href="addmember">Add a family member here</a></p></div>
+    <div><p><a class= "links" href="goalsList">Goals List</a></p></div>  
     </div>
      </main>
 </div>
