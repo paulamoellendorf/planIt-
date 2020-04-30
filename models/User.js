@@ -17,9 +17,7 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'family'
   },
-  goals:{
-    type:[String]
-  }
+  goals:[String]
 
  // calender:Object,
  // chart:Object,

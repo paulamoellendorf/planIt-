@@ -3,25 +3,33 @@ const router  = express.Router();
 const User = require('../models/User');
 const Family = require('../models/Family');
 
-router.get('/private', (req, res, next) => {
+/*router.get('/private', (req, res, next) => {
   const familyID=req.user._id;
   Family.findById(familyID).populate("members").then(family => {
     console.log(family.members);
     res.render('private', {family: family});
   })
-});
+});*/
 
-/*router.get('/private', (req, res, next) => {
+router.get('/private', (req, res, next) => {
   const familyID=req.user._id;
   Family.findById(familyID).populate("members").then(family => {
-    let membersGoals = family.members.reduce((obj,member) => {
-      return obj[member.name] = member.goals.length
-    }, {});
+    let membersGoals=[];
+    let countGoals = 0;
+    family.members.forEach((member)=>{
+      countGoals += member.goals.length;
+      membersGoals.push({
+        name: member.name,
+        goals:member.goals.length
+      });
+    })
+    membersGoals.forEach(member => member.percent = Math.floor((member.goals / countGoals) * 100))
     console.log(membersGoals, "MEMBERSGOALS");
+    console.log(countGoals, "COUNTGOALS");
     console.log(family.members);
     res.render('private', {family: family, chartInfo: membersGoals});
   })
-});*/
+});
 
 
 // ../member/:id

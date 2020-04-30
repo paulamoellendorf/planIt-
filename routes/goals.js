@@ -47,16 +47,19 @@ router.post('/addgoal', (req,res,next) =>{
 
 router.post('/addGoalToMember', (req,res,next) =>{
   //res.send(req.body);
-  Goal.findByIdAndDelete(req.body.goal)
+  Goal.findById(req.body.goal)
   .then(goal=>{
-    console.log(`Success ${goal} got deleted`);
+    //console.log(`Success ${goal} got deleted`);
   User.findByIdAndUpdate(req.body.member, {
-    goals:goal.goal
+    $push:{goals:goal.goal},
   })
   .then(user =>{
-    console.log(`Success ${user} got updated`);
-    res.redirect('/private')
-    
+    Goal.findByIdAndDelete(req.body.goal).then(()=>{
+      console.log(`Success ${user} got updated`);
+      res.redirect('/private')
+      
+    })
+  
     })
   }).catch(err =>{
     console.og(err);
