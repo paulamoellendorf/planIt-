@@ -74,6 +74,9 @@ a .nav-link {
   flex-direction: column;
   justify-content: center; }
 
+.card-body > h4 {
+  color: black; }
+
 /*.form-group {
    font-family: "Roboto", sans-serif;
   font-size: 0.875rem;

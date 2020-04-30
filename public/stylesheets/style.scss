@@ -27,6 +27,7 @@ text-decoration: none;
 .row{
   display: flex;
   justify-content: center;
+  //flex-direction: column; 
 }
 
 .options{
@@ -103,6 +104,9 @@ justify-content: center;
 
 }
 
+.card-body> h4{
+  color:black;
+}
  /*.form-group {
    font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
