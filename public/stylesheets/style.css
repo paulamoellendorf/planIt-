@@ -1,4 +1,12 @@
 /* sample using the font */
+@font-face {
+  font-family: 'DoodleJump';
+  src: url("//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf") format("truetype"); }
+
+/* sample using the font */
+body {
+  font-family: 'DoodleJump'; }
+
 body {
   padding: 10px;
   margin: 0;
@@ -67,8 +75,8 @@ a .nav-link {
   flex-direction: column;
   justify-content: center; }
 
-.form-group {
-  font-family: "Roboto", sans-serif;
+/*.form-group {
+   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -77,8 +85,8 @@ a .nav-link {
   box-sizing: inherit;
   margin-bottom: 30px;
   display: flex;
-  justify-content: center; }
-
+  justify-content: center;
+}'*/
 .form-group > input {
   border-radius: 10rem;
   height: 3rem; }
@@ -86,6 +94,29 @@ a .nav-link {
     color: lightgray;
     display: flex;
     text-align: center; }
+
+.login-input {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.loginFooter {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #6F8AB7; }
+
+.loginFooter > p {
+  color: #6F8AB7; }
+
+.login-form__footer {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #6F8AB7; }
 
 h2 {
   color: white; }
@@ -125,11 +156,15 @@ p {
   display: flex;
   flex-direction: row; }
 
-.login-form__btn {
-  width: 1100px; }
+/*.login-form__btn{
+  width: 1100px;
 
-p .mt-5 .login-form__footer {
-  color: black; }
+}
+
+
+p .mt-5 .login-form__footer{
+color: black;
+}
 
 .btn .login-form__btn .submit .w-100 {
   outline: none;
@@ -146,13 +181,13 @@ p .mt-5 .login-form__footer {
   border: 1px solid transparent;
   line-height: 1.5;
   border-radius: 0.25rem;
-  width: 100%;
+  width: 100% ;
   font-size: 14px;
   padding: 15px 40px;
   color: #020122;
   background: #020122;
-  font-weight: 700; }
-
+  font-weight: 700;
+}*/
 .progress-bar {
   width: 100;
   display: flex;
