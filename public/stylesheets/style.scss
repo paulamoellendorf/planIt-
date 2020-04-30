@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+padding: 10px;
+font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 margin: 0;
 font-size: 1rem;
 font-weight: 400;
@@ -8,22 +8,54 @@ font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","
 line-height: 1.5;
 height: 100%;
 background-color: #020122;
-color: #white;
+color: #020122;
 text-align: center;
+}
+.container-fluid{
+background-color: #020122;
+color: #020122;
+}
+.cover-heading{
+  padding: 20px;
+}
+.lead{
+  padding: 1px;
+  margin: 0;
+}
+.navbar-brand{
 
 }
-
 a {
   color: #white;
 }
 
+.mastfoot .mt-auto{
+background-color: #020122;
+color: #020122;
+}
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10;
+}
+
+a .btn .btn-lg .btn-secondary{
+padding: 10px;
+margin: 50px;
+}
+
+.login-form-bg .h-100{
+padding: 50px;
+background-color: #020122;
+}
 
 .card .login-form .mb-0{
   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  
   text-align: center;
   outline: none;
   box-sizing: inherit;
@@ -35,26 +67,13 @@ a {
   flex-direction: column; }
 
 
-  .card-body .pt-5{
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.5;
-    
-    text-align: left;
-    outline: none;
-    box-sizing: inherit;
-    margin: 0;
-    flex: 1 1 auto;
-    padding-top: 3rem;
-    padding: 1.88rem 1.81rem;
-  }
+
 
   .mt-5 .mb-5 .login-input {  
   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
- 
   text-align: left;
   outline: none;
   box-sizing: inherit;
@@ -101,7 +120,7 @@ a {
   font-weight: 700;
 }
 .progress{
-  width: 50%;
+  width: 62%;
 }
 .goalsList >ul li {
   cursor: pointer;
