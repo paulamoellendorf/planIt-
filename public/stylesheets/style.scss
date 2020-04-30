@@ -1,13 +1,19 @@
+@font-face {
+	font-family: 'DoodleJump';
+	src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
+}
+
+/* sample using the font */
 body {
 padding: 10px;
 font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 margin: 0;
 font-size: 1rem;
 font-weight: 400;
-font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+font-family: 'DoodleJump';
 line-height: 1.5;
 height: 100%;
-background-color: #020122;
+background-color: #90d2d8;
 color: #020122;
 text-align: center;
 
@@ -15,7 +21,7 @@ text-align: center;
 
 }
 .container-fluid{
-background-color: #020122;
+background-color: #6F8AB7;
 color: #020122;
 }
 .cover-heading{
@@ -105,6 +111,9 @@ p{
   margin-bottom: 30px;
 }
 
+p .mt-5 .login-form__footer{
+color: black;
+}
 .btn .login-form__btn .submit .w-100 {
   outline: none;
   box-sizing: inherit;
