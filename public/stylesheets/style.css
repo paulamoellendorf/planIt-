@@ -59,6 +59,12 @@ a .btn .btn-lg .btn-secondary {
   justify-content: center;
   flex-direction: column; }
 
+h1 {
+  color: white; }
+
+p {
+  color: white; }
+
 .mt-5 .mb-5 .login-input {
   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
