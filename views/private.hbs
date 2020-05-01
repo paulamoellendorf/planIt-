@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head></head>
-<body>
 <div class="container-fluid">    
  <main role="main" class="inner cover">
       <h1>Welcome {{family.familyName}} Family</h1>
       <hr>
         <h2>{{family.familyName}} Goals</h2>
   <div class="page">
-  <div class="col-sm-4">         
+  <div class="col-sm-2">         
   {{#each family.members}}
     <p><a class= "links" href="/private/{{this._id}}">{{this.name}}</a></p>
        {{/each}}
        </div>
-  <div class="chart col-sm-8"> 
+  <div class="chart col-sm-10"> 
  {{#each chartInfo}}
   <div>
   <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p>{{percent}} % goals completed</p> 
+<p>{{percent}} % Goals Completed</p> 
   </div>
    {{/each}}
 </div>
 </div>
 </div>
     <div class="options">
-    <div><p> <a class= "links" href="addgoal">Launch your Goals!</a></p></div>
-    <div><p><a class= "links" href="addmember">Add a family member here</a></p></div>
-    <div><p><a class= "links" href="goalsList">Goals List</a></p></div>  
+    <div class="rocket"><p> <img width=12% src="\images\cuteRocket.png"> <a class= "links col-sm-4" href="addgoal">Launch Your Goals!</a></p></div>
+    <div><p><a class= "links col-sm-4" href="goalsList">Goals List</a></p></div>  
+    <div><p><a class= "links col-sm-4" href="addmember">Add a Family Member Here</a></p></div>
     </div>
      </main>
 </div>
-</body>
-</html>
+
 
 

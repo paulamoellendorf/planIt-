@@ -1,24 +1,22 @@
-<h1>Member page<h1>
+ <h1>Family Member Page<h1>
 <div class="container-fluid"> 
   <div class="members-page">  
         <div class="container h-100">
             <div class="row justify-content-left h-100">
     {{#with member}}
-<p>{{this.name}}</p>
-<p><b>Birthday: </b>{{this.birthday}}</p>
-<p><b>Phone Number: </b><i>{{this.phone_Number}}</i></p>
-<p><b>Email: </b><i>{{this.e_mail}}</i></p>
+<b><p>{{this.name}}</p></b>
+<div class="col-sm-12"><p><b>Birthday: </b>{{this.birthday}}</p></div>
+<div class="col-sm-12"><p><b>Phone Number: </b><i>{{this.phone_Number}}</i></p></div>
+<div class="col-sm-12"><p><b>Email: </b><i>{{this.e_mail}}</i></p></div>
 {{/with}}
 </div>
 </div>
         <div class="container h-100">
-            <div class="row justify-content-right h-100">
-                
+            <div class="row justify-content-right h-100">            
     {{#with member}}
-  <p>Goals Completed: </p>
-  {{this.goals}}
-  {{/with}}
-  
+  <b><div class="col-sm-12"><p>Goals Completed: </p></div></b>
+  <div class="col-sm-12">{{this.goals}}</div>
+  {{/with}} 
 </div>
 </div>
 </div>
