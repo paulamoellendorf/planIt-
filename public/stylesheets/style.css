@@ -26,7 +26,7 @@ body {
 
 .options {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
   padding: 10px;
   margin: 10;
@@ -54,6 +54,14 @@ a .nav-link {
 .mastfoot .mt-auto {
   background-color: #6F8AB7;
   color: white; }
+
+.row .justify-content-right .h-100 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.rocket {
+  width: 25%; }
 
 .col-xl-6 {
   margin-top: 5rem;

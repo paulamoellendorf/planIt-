@@ -1,49 +1,22 @@
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/"><img src="/images/planitlogotext.png" width="60" height="60" alt="logo"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/familysignup">Signup</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/private">Family Planner</a>
-      </li>
-          <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>  
-<h1>Family Member Page<h1>
+ <h1>Family Member Page<h1>
 <div class="container-fluid"> 
   <div class="members-page">  
         <div class="container h-100">
             <div class="row justify-content-left h-100">
     {{#with member}}
-<p>{{this.name}}</p>
-<p><b>Birthday: </b>{{this.birthday}}</p>
-<p><b>Phone Number: </b><i>{{this.phone_Number}}</i></p>
-<p><b>Email: </b><i>{{this.e_mail}}</i></p>
+<b><p>{{this.name}}</p></b>
+<div class="col-sm-12"><p><b>Birthday: </b>{{this.birthday}}</p></div>
+<div class="col-sm-12"><p><b>Phone Number: </b><i>{{this.phone_Number}}</i></p></div>
+<div class="col-sm-12"><p><b>Email: </b><i>{{this.e_mail}}</i></p></div>
 {{/with}}
 </div>
 </div>
         <div class="container h-100">
-            <div class="row justify-content-right h-100">
-                
+            <div class="row justify-content-right h-100">            
     {{#with member}}
-  <p>Goals Completed: </p>
-  {{this.goals}}
-  {{/with}}
-  
+  <b><div class="col-sm-12"><p>Goals Completed: </p></div></b>
+  <div class="col-sm-12">{{this.goals}}</div>
+  {{/with}} 
 </div>
 </div>
 </div>

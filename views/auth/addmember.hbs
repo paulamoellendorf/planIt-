@@ -1,32 +1,7 @@
 
   <!-- views/auth/addmember.hbs -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/"><img src="/images/planitlogotext.png" width="60" height="60" alt="logo"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/familysignup">Signup</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/private">Family Planner</a>
-      </li>
-          <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>  
+
 <h2>Add Family Member</h2>
- 
 <form action="/addmember" method="POST" id="form-container">
   <label for="name">Name</label>
   <input id="name" type="text" name="name" placeholder="Jon Snow">
@@ -40,8 +15,6 @@
   <label for="e_mail">Email</label>
   <input id="e_mail" type="text" name="e_mail" placeholder="jonsnow@mail.com">
   <br><br>
-
- 
   <button>Create New Member</button>
 </form>
 <h3><a href="/private">Go Back</a><h3></h3>
