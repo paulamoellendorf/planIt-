@@ -61,7 +61,7 @@ a .nav-link {
   justify-content: center; }
 
 .rocket {
-  width: 25%; }
+  width: 40%; }
 
 .col-xl-6 {
   margin-top: 5rem;
@@ -139,7 +139,7 @@ p {
   width: 8rem;
   margin-left: 2rem;
   margin-right: 2rem;
-  font-size: 10px;
+  font-size: 15px;
   background-color: lightgray;
   border-radius: 5rem; }
 
@@ -339,7 +339,7 @@ color: black;
 
 .memberSelect > select {
   margin-top: 1rem;
-  height: 2rem;
+  height: 3rem;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -374,5 +374,45 @@ color: black;
 .memberSelect > button {
   margin-top: 2rem;
   border-radius: 3rem; }
+
+.addMember {
+  line-height: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.addMember > h3 {
+  display: flex;
+  justify-content: flex-end; }
+
+.addMember > h3 > a {
+  color: white; }
+
+.addMember > h2 {
+  margin-top: 2rem; }
+
+#form-container input {
+  border-radius: 5rem;
+  text-align: center;
+  line-height: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin: auto; }
+
+#form-container > button {
+  margin-top: 2rem;
+  border-radius: 3rem;
+  height: 3rem; }
+
+.memberLabel {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.memberLabel > input {
+  width: 20rem;
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */

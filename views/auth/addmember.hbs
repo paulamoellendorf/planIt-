@@ -1,20 +1,37 @@
 
   <!-- views/auth/addmember.hbs -->
 
+  <div class="addMember">
+
 <h2>Add Family Member</h2>
 <form action="/addmember" method="POST" id="form-container">
+<div class="memberLabel">
   <label for="name">Name</label>
   <input id="name" type="text" name="name" placeholder="Jon Snow">
   <br><br>
+  </div>
+
+  <div class="memberLabel">
   <label for="birthday">Birthday</label>
   <input id="birthday" type="date" name="birthday">
   <br><br>
+  </div>
+
+  <div class="memberLabel">
   <label for="phone_Number">Phone Number</label>
   <input id="phone_Number" type="number" name="phone_Number">
   <br><br>
+  </div>
+
+  <div class="memberLabel">
   <label for="e_mail">Email</label>
   <input id="e_mail" type="text" name="e_mail" placeholder="jonsnow@mail.com">
   <br><br>
+
+  </div>
+
   <button>Create New Member</button>
 </form>
+
 <h3><a href="/private">Go Back</a><h3></h3>
+</div>
